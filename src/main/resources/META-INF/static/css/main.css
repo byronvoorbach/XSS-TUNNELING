@@ -1,0 +1,84 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+body, html {
+    height:100%;
+    width: 100%;
+}
+
+.wrapper {
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:800px;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.wrapper h1 {
+    float:left;
+    width: 100%;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+}
+
+.wrapper .left {
+    width: 600px;
+    float:left;
+}
+
+.wrapper .right {
+    float:left;
+    width:198px;
+    height:398px;
+    background:lightgrey;
+    border: 1px solid;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.wrapper .bottom {
+    width: 798px;
+    height: 400px;
+    margin-top: 50px;
+    float:left;
+}
+
+#userPage {
+    border: 1px solid black;
+}
+
+.wrapper .right .function {
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 175px;
+    height: 20px;
+}
+
+#input {
+    width: 500px;
+    height: 20px;
+}
+#output {
+    width: 600px;
+    height: 400px;
+    resize: none;
+    color: #00ee26;
+    background-color: black
+}
+#submitButton {
+    width: 45px;
+    height: 20px;
+}
+
+#clearButton {
+    width: 45px;
+    height: 20px;
+}
