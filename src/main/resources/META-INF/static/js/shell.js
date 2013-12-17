@@ -7,6 +7,7 @@ $(function () {
     var clearButton = $('#clearButton');
     var commands = $('#commands');
     var id = $('#id').val();
+    var devUrl = "http://localhost:8080/";
 
     /////EVENT LISTENERS/////
 
@@ -15,7 +16,7 @@ $(function () {
     function getCommands() {
         $.ajax({
                    type: "GET",
-                   url: "http://xss-tunneling.byronvoorbach.cloudbees.net/shellCommands/" + id,
+                   url: devUrl + "shellCommands/" + id,
                    success: (function (data) {
                        commands.innerHTML = '';
                        commands.html(data);
@@ -41,7 +42,7 @@ $(function () {
     });
 
     clearButton.click(function () {
-        var url = 'http://xss-tunneling.byronvoorbach.cloudbees.net/clear/' + id;
+        var url = devUrl + 'clear/' + id;
         $.ajax({
                    url: url
                });
@@ -97,7 +98,7 @@ $(function () {
     function getCurrentPage() {
         $.ajax({
                    type: "GET",
-                   url: "http://xss-tunneling.byronvoorbach.cloudbees.net/currentPage/" + id,
+                   url: devUrl + "currentPage/" + id,
                    success: function (data) {
                        var iFrame = document.createElement('iframe');
                        iFrame.id = 'page';
@@ -113,7 +114,7 @@ $(function () {
     function sendCommandToServer(data) {
         $.ajax({
                    type: "POST",
-                   url: "http://xss-tunneling.byronvoorbach.cloudbees.net/receiveShellCommand/" + id,
+                   url: devUrl + "receiveShellCommand/" + id,
                    data: data,
                    contentType: "application/json; charset=utf-8"
                });

