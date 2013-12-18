@@ -2,7 +2,7 @@
 {% block content %}
 <textarea id="output" disabled>
     {% for command in commands %}
-        {{ command.date }} {{ command.metaData }}
+        {{ command.date|datetime('time') }} {{ command.metadata }}
     {% endfor %}
 </textarea>
 {% endblock %}

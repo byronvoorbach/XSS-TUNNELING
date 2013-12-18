@@ -1,6 +1,7 @@
 from flask import make_response
 from functools import update_wrapper
 
+
 def hack(f):
     def new_func(*args, **kwargs):
         resp = make_response(f(*args, **kwargs))

@@ -8,8 +8,13 @@ body, html {
     width: 100%;
 }
 
+.mainContent {
+    width: 100%;
+    text-align: center;
+}
+
 .wrapper {
-    position:absolute;
+    position:relative;
     left:50%;
     top:50%;
     width:800px;

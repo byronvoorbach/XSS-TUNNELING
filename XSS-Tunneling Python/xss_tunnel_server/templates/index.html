@@ -27,13 +27,13 @@
         <tbody>
                 {%  for victim in victims %}
                 <tr>
-                    <td>{{ victim.id }}</td>
+                    <td>{{ victim.victim_id }}</td>
                     <td>{{ victim.ip }}</td>
                     <td>{{ victim.referrer }}</td>
-                    <td>{{ victim.userAgent }}</td>
-                    <td>{{ victim.firstSeen }}</td>
-                    <td>{{ victim.lastSeen }}</td>
-                    <td><a href="/shell/{{ victim.id }}">Interact</a><br></td>
+                    <td>{{ victim.user_agent }}</td>
+                    <td>{{ victim.first_seen|datetime('time') }}</td>
+                    <td>{{ victim.last_seen|datetime('time') }}</td>
+                    <td><a href="/shell/{{ victim.victim_id }}">Interact</a><br></td>
                 </tr>
             {%  endfor %}
         </tbody>

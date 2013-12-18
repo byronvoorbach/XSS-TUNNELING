@@ -29,7 +29,7 @@ $(function () {
         var value = input.val();
 
         if (value.length != 0) {
-            var data = '{"id": "' + id + '", "date": "' + getTime() + '", "type": "msg", "metaData": "' + value + '"}';
+            var data = '{"id": "' + id + '", "date": "' + getTime() + '", "command": "msg", "metaData": "' + value + '"}';
             sendCommandToServer(data);
             input.val('');
         }
@@ -86,7 +86,7 @@ $(function () {
         }
 
         if (send) {
-            var data = '{"id": "' + id + '", "date": "' + getTime() + '", "type": "' + dataAttr + '", "metaData": "'
+            var data = '{"id": "' + id + '", "date": "' + getTime() + '", "command": "' + dataAttr + '", "metadata": "'
                     + value + '"}';
             sendCommandToServer(data);
         }

