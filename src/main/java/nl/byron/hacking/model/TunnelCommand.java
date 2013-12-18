@@ -7,12 +7,12 @@ public class TunnelCommand {
 
     private String id;
     private String type;
-    private String metadata;
+    private String metaData;
 
     public TunnelCommand(String id, String type, String metadata) {
         this.id = id;
         this.type = type;
-        this.metadata = metadata;
+        this.metaData = metadata;
     }
 
     public String getId() {
@@ -31,12 +31,12 @@ public class TunnelCommand {
         this.type = type;
     }
 
-    public String getMetadata() {
-        return metadata;
+    public String getMetaData() {
+        return metaData;
     }
 
-    public void setMetadata(String metadata) {
-        this.metadata = metadata;
+    public void setMetaData(String metaData) {
+        this.metaData = metaData;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class TunnelCommand {
         return "TunnelCommand{" +
                 "id='" + id + '\'' +
                 ", type='" + type + '\'' +
-                ", metadata='" + metadata + '\'' +
+                ", metaData='" + metaData + '\'' +
                 '}';
     }
 }
