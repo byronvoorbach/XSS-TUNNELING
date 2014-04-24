@@ -5,7 +5,6 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
-import java.util.logging.LogRecord;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -31,7 +30,17 @@ public class Victim {
         this.referer = request.getHeader("referer");
         this.firstSeen = firstSeen;
         this.lastSeen = firstSeen;
-        commandsToBeSent = new ArrayList<TunnelCommand>();
+        commandsToBeSent = new ArrayList<>();
+    }
+
+    public TunnelCommand getCommand() {
+        if (commandsToBeSent.size() > 0) {
+            TunnelCommand tunnelCommand = commandsToBeSent.get(0);
+            commandsToBeSent.remove(tunnelCommand);
+
+            return tunnelCommand;
+        }
+        return null;
     }
 
     public String getId() {

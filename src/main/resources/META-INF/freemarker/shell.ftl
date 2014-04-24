@@ -27,6 +27,7 @@
     <div class="right">
         <input class="function" type="button" data-function="msg" value="Send message box">
         <input class="function" type="button" data-function="getCookies" value="Get cookies">
+        <input class="function" type="button" data-function="getLocalStorage" value="Get local storage content">
         <input class="function" type="button" data-function="getUrl" value="Get current url">
         <input class="function" type="button" data-function="goToUrl" value="Go to url">
         <input class="function" type="button" data-function="getSite" value="Get current page">

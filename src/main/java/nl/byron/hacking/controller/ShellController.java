@@ -22,21 +22,17 @@ import java.util.Map;
 @Controller
 public class ShellController {
 
-    private Map<String, ArrayList<ShellCommand>> victimCommands;
+    private Map<String, ArrayList<ShellCommand>> victimCommands = new HashMap<>();
 
     @Autowired
     private TunnelController tunnelController;
-
-    public ShellController() {
-        victimCommands = new HashMap<String, ArrayList<ShellCommand>>();
-    }
 
     @RequestMapping(value = "/shell/{id}", method = RequestMethod.GET)
     public String showShell(@PathVariable String id, Model model) {
         ArrayList<ShellCommand> commands = victimCommands.get(id);
 
         if(commands == null) {
-            commands = new ArrayList<ShellCommand>();
+            commands = new ArrayList<>();
             victimCommands.put(id, commands);
         }
 
@@ -90,12 +86,9 @@ public class ShellController {
         commands.add(shellCommand);
     }
 
+    // ==================================================== Helpers ====================================================
 
-    public Map<String, ArrayList<ShellCommand>> getVictimCommands() {
-        return victimCommands;
-    }
-
-    public void setVictimCommands(Map<String, ArrayList<ShellCommand>> victimCommands) {
-        this.victimCommands = victimCommands;
+    public void removeVictim(Victim victim) {
+        victimCommands.remove(victim.getId());
     }
 }

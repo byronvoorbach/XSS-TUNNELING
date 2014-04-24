@@ -62,6 +62,8 @@ $(function () {
             }
         } else if (dataAttr == 'getCookies') {
             value = dataAttr;
+        } else if (dataAttr == 'getLocalStorage') {
+            value = dataAttr;
         } else if (dataAttr == 'startLogger') {
             value = dataAttr;
         } else if (dataAttr == 'stopLogger') {

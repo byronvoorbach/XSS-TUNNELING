@@ -9,9 +9,10 @@ My mission is to create an easy to use reverse shell as a PoC to show off the da
 
 ### Current features
 
-*  Retreive cookies (non HttpOnly cookies)
-*  Retreive current URL
-*  Retreive current page and show in iFrame
+*  Retrieve cookies (non HttpOnly cookies)
+*  Retrieve current URL
+*  Retrieve current page and show in iFrame
+*  Retrieve localeStorage content
 *  Visit page
 *  Send message box
 *  Start/Stop keylogger
@@ -38,15 +39,3 @@ Find your own way of hosting this server online and get the hack.js script to be
 <BR>
 I created this to be used as a PoC to show off the dangers of XSS.<BR>
 This has not been created for any evil purposes...
-
-
-
-
-
-
-
-
-
-
-
-

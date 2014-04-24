@@ -11,7 +11,7 @@ body, html {
 .wrapper {
     position:absolute;
     left:50%;
-    top:50%;
+    top:60%;
     width:800px;
 
     -webkit-transform: translate(-50%, -50%);

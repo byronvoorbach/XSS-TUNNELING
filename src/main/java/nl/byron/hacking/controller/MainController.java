@@ -18,7 +18,7 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showMainPage(Model model) {
-        model.addAttribute("victims", tunnelController.getVictims());
+        model.addAttribute("victims", tunnelController.getVictims().values());
         return "index";
     }
 
