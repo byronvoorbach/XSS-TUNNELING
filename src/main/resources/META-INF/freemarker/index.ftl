@@ -26,6 +26,7 @@
                 <td>Id</td>
                 <td>Ip</td>
                 <td>Referer</td>
+                <td>OS</td>
                 <td>User Agent</td>
                 <td>First Seen</td>
                 <td>Last Seen</td>
@@ -38,6 +39,7 @@
                     <td>${victim.id}</td>
                     <td>${victim.ip}</td>
                     <td>${victim.referer}</td>
+                    <td>${victim.os}</td>
                     <td>${victim.userAgent}</td>
                     <td>${victim.firstSeen}</td>
                     <td>${victim.lastSeen}</td>

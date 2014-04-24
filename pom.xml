@@ -71,6 +71,11 @@
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>net.sf.uadetector</groupId>
+            <artifactId>uadetector-resources</artifactId>
+            <version>2014.01</version>
+        </dependency>
 
         <!-- Logging -->
         <dependency>

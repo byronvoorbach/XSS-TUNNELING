@@ -1,5 +1,8 @@
 package nl.byron.hacking.model;
 
+import net.sf.uadetector.ReadableUserAgent;
+import net.sf.uadetector.UserAgentStringParser;
+import net.sf.uadetector.service.UADetectorServiceFactory;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -12,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class Victim {
 
+    private String os;
     private String id;
     private String ip;
     private String userAgent;
@@ -24,9 +28,15 @@ public class Victim {
     private static final DateTimeFormatter fmt = DateTimeFormat.forPattern("HH:mm:ss");
 
     public Victim(String id, HttpServletRequest request, DateTime firstSeen) {
+        String userAgent = request.getHeader("User-Agent");
+
+        UserAgentStringParser parser = UADetectorServiceFactory.getResourceModuleParser();
+        ReadableUserAgent agent = parser.parse(userAgent);
+
         this.id = id;
         this.ip = request.getRemoteAddr();
-        this.userAgent = request.getHeader("user-agent");
+        this.userAgent = userAgent;
+        this.os = agent.getOperatingSystem().getName();
         this.referer = request.getHeader("referer");
         this.firstSeen = firstSeen;
         this.lastSeen = firstSeen;
@@ -41,6 +51,14 @@ public class Victim {
             return tunnelCommand;
         }
         return null;
+    }
+
+    public String getOs() {
+        return os;
+    }
+
+    public void setOs(String os) {
+        this.os = os;
     }
 
     public String getId() {
