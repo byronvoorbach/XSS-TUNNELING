@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Shell</title>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="/resources/static/js/jquery.js"></script>
     <link href="/resources/static/css/main.css" rel="stylesheet"/>
     <script src="/resources/static/js/shell.js"></script>
 </head>
@@ -30,6 +30,7 @@
         <input class="function" type="button" data-function="getLocalStorage" value="Get local storage content">
         <input class="function" type="button" data-function="getUrl" value="Get current url">
         <input class="function" type="button" data-function="goToUrl" value="Go to url">
+        <input class="function" type="button" data-function="goToUrlInFrame" value="Go to url in frame">
         <input class="function" type="button" data-function="getSite" value="Get current page">
         <input class="function" type="button" data-function="startLogger" value="Start Keylogger">
         <input class="function" type="button" data-function="stopLogger" value="Stop Keylogger">
